@@ -10,7 +10,6 @@ const storage = multer.diskStorage({
 		cb(null, 'uploads/');
 	},
 	filename:function(req,file,cb) {
-		//Date.now()+file.originalname
 		cb(null,"demo");
 	}
 });
@@ -40,7 +39,7 @@ router.post('/generatePdf',upload.single('image'), async (req, res,next) => {
 	}
 
     await pdf.create(pdfTemplate(req.body), config = {
-		  "height": "311mm",     
+		  "height": "313mm",     
 		  "width": "210mm",            
 
   }).toFile(`${__dirname}/result.pdf`, (err) => {

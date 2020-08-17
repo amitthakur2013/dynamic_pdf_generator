@@ -39,7 +39,11 @@ router.post('/generatePdf',upload.single('image'), async (req, res,next) => {
 		req.body.imgData=path.join(__dirname,'../',req.file.path)
 	}
 
-    await pdf.create(pdfTemplate(req.body), {}).toFile(`${__dirname}/result.pdf`, (err) => {
+    await pdf.create(pdfTemplate(req.body), config = {
+		  "height": "311mm",     
+		  "width": "210mm",            
+
+  }).toFile(`${__dirname}/result.pdf`, (err) => {
         if(err) {
             next(err);
         }

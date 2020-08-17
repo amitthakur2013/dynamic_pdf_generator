@@ -1,6 +1,6 @@
 const path=require('path');
 
-module.exports = ({ name, price1, price2, receiptId,imgData }) => {
+module.exports = ({ pId,merchant,address_line1,state,zip_code,vchr_code,vchr_amt,adult,child,status,valid_from,valid_to,from_date,to_date,imgData }) => {
   var imgSrc=path.join('file://',imgData)
     imgSrc = path.normalize(imgSrc);
     console.log(imgSrc)
@@ -24,23 +24,23 @@ return `
   <div style="width: 100%;border: 2px solid #EAE8E8;padding: 0" > 
     <div style="width: 100%;height: 100px;padding: 0;background:#EAE8E8!important" class="container">
       <div  class="row" style="width: 100%;padding: 3px">
-        <span style="float:right"><b>Purchase Id: AFU468</b></span>
+        <span style="float:right"><b>Purchase Id: ${pId}</b></span>
       </div>
     </div>
     <div style="width: 100%;margin-top: 30px;margin-bottom: 10px" class="container">
       <div class="row" >
         <div style="border-right: 2px solid #EAE8E8" class="col-xs-7">
           <div style="padding: 5px;" class="row">
-            <h3 style="float: right;"><b>Rs. 1</b></h3>
-            <h3 style="font-weight: bold;">Taj Mahal Palace</h3>
+            <h3 style="float: right;"><b>Rs. ${vchr_amt}</b></h3>
+            <h3 style="font-weight: bold;">${merchant}</h3>
           </div>
           <div style="padding: 10px;border-bottom: 2px solid #EAE8E8" class="row">
           
           <p>Address List :</p>
-          <p>1 ) Gateway of India,colaba,Maharashtra, Zip Code : 400001</p>
+          <p>${address_line1}, ${state}, Zip Code : ${zip_code}</p>
           </div>
           <div style="padding: 8px;justify-content: center;display: flex;flex-direction: row;border-bottom: 2px solid #EAE8E8" class="row">
-            <p style="margin-top:15px">Voucher Code: AFUC-TAJ -5F1E-F4A9-69A7</p>
+            <p style="margin-top:15px">Voucher Code: ${vchr_code}</p>
           </div>
           <div style="padding: 10px;margin-top: 10px;border-bottom: 2px solid #EAE8E8" class="row">
             <ul style="list-style-type: none">
@@ -48,28 +48,28 @@ return `
                 <p>Valid On: All Days</p>
               </li>
               <li>
-                <p>Valid For: 2 adults 1 child</p>
+                <p>Valid For: ${adult} adults ${child} child</p>
               </li>
               <li>
-                <p>Valid From: 26 Jul,2020</p>
+                <p>Valid From: ${valid_from}</p>
               </li>
               <li>
-                <p>Valid To: 30 Jul,2020</p>
+                <p>Valid To: ${valid_to}</p>
               </li>
               <li>
-                <p>Status : Redeemed</p>
+                <p>Status : ${status}</p>
               </li>
               <li>
-                <p>From Date : 29/07/2020</p>
+                <p>From Date : ${from_date}</p>
               </li>
               <li>
-                <p>To Date : 31/07/2020</p>
+                <p>To Date : ${to_date}</p>
               </li>
               <li>
-                <p>Total Adults : 2</p>
+                <p>Total Adults : ${adult}</p>
               </li>
               <li>
-                <p>Total Child : 1</p>
+                <p>Total Child : ${child}</p>
               </li>
             </ul>
           </div>
@@ -126,9 +126,9 @@ section of the app
           <div style="margin-top: 20px" class="row">
             <h3><b>Use at</b></h3><br/>
 
-            <p style="font-weight: bold;">Taj Mahal Palace</p><br/>
+            <p style="font-weight: bold;">${merchant}</p><br/>
             <p>Address List :</p>
-          <p>1 ) Gateway of India,colaba,Maharashtra, Zip Code : 400001</p>
+          <p>${address_line1}, ${state}, Zip Code : ${zip_code}</p>
           </div>
         </div>
       </div>
